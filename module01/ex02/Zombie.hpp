@@ -15,26 +15,33 @@
 
 #include <iostream>
 
+/*
+ * This enum has a connection with Zombie::_typesStrAll
+ * please when changing enum, make sure you're changing
+ * Zombie::_typesStrAll.
+ */
+
 enum e_zombieType
 {
-	stupid,
-	dummy,
-	very_stupid
+	STUPID,
+	DUMMY,
+	VERY_STUPID
 };
 
 class Zombie {
 
 public:
 
-	Zombie();
+	Zombie( e_zombieType type, std::string name );
 	~Zombie();
 
 	void				announce();
 
 private:
 
-	static const int 	_typesCount;
-	static std::string	_typesStrAll[];
+	static const int 			_typesCount;
+	static const std::string	_typesStrAll[];
+
 	enum e_zombieType	_type;
 	std::string			_name;
 	int					_hp;

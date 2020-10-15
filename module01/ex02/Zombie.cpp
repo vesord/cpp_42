@@ -13,17 +13,26 @@
 #include "Zombie.hpp"
 #include <iostream>
 
+
+/*
+ * This string affay has a connection with
+ * enum e_zombieType. Please when changing array,
+ * make sure you're changing enum e_zombieType.
+ */
+
 const int Zombie::_typesCount = 3;
 
-std::string Zombie::_typesStrAll[Zombie::_typesCount] =
+const std::string Zombie::_typesStrAll[Zombie::_typesCount] =
 	{
 		"stupid",
 		"dummy",
 		"very_stupid"
 	};
 
-Zombie::Zombie()
+Zombie::Zombie( e_zombieType type, std::string name ) : _type(type), _name(name)
 {
+	this->_hp = 150;
+	this->_brain_value = 300;
 	return ;
 }
 

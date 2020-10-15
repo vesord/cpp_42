@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matrus <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 17:29:30 by matrus            #+#    #+#             */
-/*   Updated: 2020/10/14 17:29:31 by matrus           ###   ########.fr       */
+/*   Created: 2020/10/15 09:11:43 by matrus            #+#    #+#             */
+/*   Updated: 2020/10/15 09:11:44 by matrus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIEEVENT_HPP
-# define ZOMBIEEVENT_HPP
-
 #include "Zombie.hpp"
+#include "ZombieEvent.hpp"
 
-class ZombieEvent {
+int main()
+{
+	ZombieEvent covid;
+	Zombie*		zombOnHeap;
+	Zombie		zombOnStack(DUMMY, "STACKer");
 
-public:
+	covid.setZombieType(VERY_STUPID);
 
-	ZombieEvent();
-	~ZombieEvent();
+	zombOnHeap = covid.newZombie( "HEAPster");
+	zombOnHeap->announce();
+	zombOnStack.announce();
 
-	void	setZombieType( e_zombieType type );
+	delete zombOnHeap;
 
-	Zombie*	newZombie(std::string name) const;
-	Zombie*	randomChump() const;
+	zombOnHeap = covid.randomChump();
+	delete zombOnHeap;
+//	while (1)
+//		;
+	return (0);
+}
 
-private:
-
-	static const int 			_randomNamesCount;
-	static const std::string	_randomNamesStr[];
-
-	e_zombieType	_type;
-
-};
-
-
-#endif
