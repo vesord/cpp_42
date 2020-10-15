@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
-
-#include "HumanB.hpp"
 #include <iostream>
 
 HumanB::HumanB(std::string name) : _name(name)
@@ -33,6 +31,5 @@ void	HumanB::attack()
 
 void HumanB::setWeapon( Weapon& weapon)
 {
-//	std::cout << this->_name << " has taken a " << weapon.getType() << std::endl;
 	this->_weapon = &weapon;
 }

@@ -30,7 +30,5 @@ const std::string& Weapon::getType() const
 
 void	Weapon::setType(std::string type)
 {
-//	std::cout << "prev: " << this->_type << std::endl;
 	this->_type = type;
-//	std::cout << " now: " << this->_type << std::endl;
 }
