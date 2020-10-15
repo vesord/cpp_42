@@ -12,17 +12,24 @@
 
 #include "Pony.hpp"
 
-int main()
+void	ponyOnTheHeap()
+{
+	Pony *pony2 = new Pony(PURPLE, 22);
+	pony2->iGoGo();
+	pony2->makeRainbow();
+	delete pony2;
+}
+
+void	ponyOnTheStack()
 {
 	Pony pony1(RED, 34);
-	Pony *pony2 = new Pony(PURPLE, 22);
-
 	pony1.iGoGo();
-	pony2->iGoGo();
-
 	pony1.makeRainbow();
-	pony2->makeRainbow();
+}
 
-	delete pony2;
+int main()
+{
+	ponyOnTheHeap();
+	ponyOnTheStack();
 	return (0);
 }

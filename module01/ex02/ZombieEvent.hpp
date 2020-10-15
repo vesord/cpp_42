@@ -25,12 +25,8 @@ public:
 	void	setZombieType( e_zombieType type );
 
 	Zombie*	newZombie(std::string name) const;
-	Zombie*	randomChump() const;
 
 private:
-
-	static const int 			_randomNamesCount;
-	static const std::string	_randomNamesStr[];
 
 	e_zombieType	_type;
 

@@ -13,22 +13,44 @@
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
 
+const int randomNamesCount = 8;
+
+const std::string randomNamesStr[randomNamesCount] =
+	{
+		"Chuck",
+		"David",
+		"Alice",
+		"Tom",
+		"Bob",
+		"Brian",
+		"BrainLover",
+		"Agrhgnug"
+	};
+
+void	randomChump()
+{
+	std::srand(std::time(nullptr));
+	Zombie*	chump = new Zombie( DUMMY,
+						randomNamesStr[std::rand() % randomNamesCount]);
+	chump->announce();
+	delete chump;
+}
+
 int main()
 {
 	ZombieEvent covid;
 	Zombie*		zombOnHeap;
-	Zombie		zombOnStack(DUMMY, "STACKer");
 
 	covid.setZombieType(VERY_STUPID);
-
 	zombOnHeap = covid.newZombie( "HEAPster");
 	zombOnHeap->announce();
+	delete zombOnHeap;
+
+	Zombie		zombOnStack(DUMMY, "STACKer");
 	zombOnStack.announce();
 
-	delete zombOnHeap;
+	randomChump();
 
-	zombOnHeap = covid.randomChump();
-	delete zombOnHeap;
 //	while (1)
 //		;
 	return (0);
