@@ -14,15 +14,37 @@
 #include <iostream>
 #include <fstream>
 
-int	my_own_sed(std::string& filename, std::string& srch, std::string& repl)
+int	my_own_sed(const std::string& filename, const std::string& srch, const std::string& repl)
 {
 	std::ifstream	ifs(filename);
-	std::ofstream	ofs(filename);
+	std::ofstream	ofs(filename + ".replace");
+	std::string		line;
 
-	std::cout << ifs << std::endl;
+	if (!ifs.is_open() || !ofs.is_open())
+	{
+		std::cerr << "Can not open file " << filename << " to read/write." << std::endl;
+		return (1);
+	}
 
-	if (srch == "" || repl == "")
-		return (0);
+	size_t	pos;
+	while (!ifs.eof())
+	{
+		std::getline(ifs, line);
+		if (ifs.fail())
+		{
+			std::cerr << "Something in reading gone wrong. Exiting." << std::endl;
+			return (1);
+		}
+		pos = 0;
+		while ((pos = line.find(srch, pos)) != std::string::npos)
+		{
+			line.replace(pos, srch.length(), repl);
+			pos += repl.length();
+		}
+		ofs << line;
+		if (!ifs.eof())
+			ofs << std::endl;
+	}
 	return (0);
 }
 
@@ -34,10 +56,13 @@ int	exit_wrong_args()
 
 int main (int argc, char **argv)
 {
-	int ret;
+	int ret = 0;
 
 	if (argc != 4)
 		return (exit_wrong_args());
-	ret = my_own_sed(std::string(argv[1]), std::string(argv[2]), std::string(argv[3]));
+	std::string	filename(argv[1]);
+	std::string search(argv[2]);
+	std::string replace(argv[3]);
+	ret = my_own_sed(filename, search, replace);
 	return (ret);
 }
