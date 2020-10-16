@@ -6,7 +6,7 @@
 /*   By: matrus <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 11:05:19 by matrus            #+#    #+#             */
-/*   Updated: 2020/10/15 11:05:20 by matrus           ###   ########.fr       */
+/*   Updated: 2020/10/16 09:33:32 by matrus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	checkLeaks()
 int main()
 {
 	checkLeaks();
-	while (true)
-		;
+//	while (true)
+//		;
 	return 0;
 }
