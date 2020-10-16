@@ -14,23 +14,28 @@
 #include <iostream>
 #include <fstream>
 
+int	exit_cant_open(const std::string &filename)
+{
+	std::cerr << "Can not open file " << filename << std::endl;
+	return (1);
+}
+
 int	my_own_sed(const std::string& filename, const std::string& srch, const std::string& repl)
 {
 	std::ifstream	ifs(filename);
+	if (!ifs.is_open())
+		return (exit_cant_open(filename));
+
 	std::ofstream	ofs(filename + ".replace");
+	if (!ofs.is_open())
+		return (exit_cant_open(filename + ".replace"));
+
 	std::string		line;
-
-	if (!ifs.is_open() || !ofs.is_open())
-	{
-		std::cerr << "Can not open file " << filename << " to read/write." << std::endl;
-		return (1);
-	}
-
 	size_t	pos;
 	while (!ifs.eof())
 	{
 		std::getline(ifs, line);
-		if (ifs.fail())
+		if (ifs.fail() && !ifs.eof())
 		{
 			std::cerr << "Something in reading gone wrong. Exiting." << std::endl;
 			return (1);
@@ -56,7 +61,7 @@ int	exit_wrong_args()
 
 int main (int argc, char **argv)
 {
-	int ret = 0;
+	int ret;
 
 	if (argc != 4)
 		return (exit_wrong_args());
