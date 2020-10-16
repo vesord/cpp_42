@@ -30,7 +30,7 @@ public:
 private:
 
 	int					_value;
-	static const int	_shift;
+	static const int	_fixedpoint;
 
 };
 

@@ -13,7 +13,7 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-const int Fixed::_shift = 0;
+const int Fixed::_fixedpoint = 8;
 
 Fixed::Fixed() : _value( 0 )
 {
