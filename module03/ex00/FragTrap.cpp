@@ -70,6 +70,7 @@ FragTrap & FragTrap::operator=(FragTrap const & fragTrap)
 	if (this == &fragTrap)
 		return *this;
 
+	this->_name = fragTrap._name;
 	this->_hitPoints = fragTrap._hitPoints;
 	this->_hitPointsMax = fragTrap._hitPointsMax;
 	this->_energyPoints = fragTrap._energyPoints;

@@ -35,15 +35,15 @@ public:
 
 private:
 
-	int					_hitPoints;
-	int					_hitPointsMax;
-	int					_energyPoints;
-	int					_energyPointsMax;
-	int					_level;
-	const std::string	_name;
-	int					_meleeAttackDamage;
-	int					_rangedAttackDamage;
-	int					_armorDamageReduction;
+	int			_hitPoints;
+	int			_hitPointsMax;
+	int			_energyPoints;
+	int			_energyPointsMax;
+	int			_level;
+	std::string	_name;
+	int			_meleeAttackDamage;
+	int			_rangedAttackDamage;
+	int			_armorDamageReduction;
 
 	static const unsigned int	_vaulthunterPhrasesCount;
 	static const std::string	_vaulthunterPhrases[];
