@@ -13,14 +13,12 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-const std::string ClapTrap::_voiceColor = COLOR_GREEN;
-const std::string ClapTrap::_modelType = "CL4P-TP";
-
 ClapTrap::ClapTrap() : _hitPoints( 1 ), _hitPointsMax( 1 ),
 					   _energyPoints( 1 ), _energyPointsMax( 1 ),
 					   _meleeAttackDamage( 0 ), _rangedAttackDamage( 0 ),
 					   _armorDamageReduction( 0 ), _level( 1 ),
-					   _name( "default_claptrap" )
+					   _name( "default_claptrap" ), _voiceColor( COLOR_GREEN ),
+					   _modelType( "CL4P-TP")
 {
 	std::cout << ClapTrap::_modelType + " " << "Default constructor called" << std::endl;
 	return ;
@@ -41,13 +39,14 @@ ClapTrap::ClapTrap(const ClapTrap &clapTrap)
 ClapTrap::ClapTrap(int hitPoint, int hitPointMax, int energyPoint,
 				   int energyPointMax, int level, int meleeAttackDamage,
 				   int ragedAttackDamage, int armorDamageReduction,
-				   std::string name) :
+				   std::string name, std::string voiceColor,
+				   std::string type) :
 				   _hitPoints( hitPoint ), _hitPointsMax( hitPointMax ),
 				   _energyPoints( energyPoint ), _energyPointsMax( energyPointMax ),
 				   _level( level ), _meleeAttackDamage( meleeAttackDamage ),
 				   _rangedAttackDamage( ragedAttackDamage ),
 				   _armorDamageReduction( armorDamageReduction ),
-				   _name( name )
+				   _name( name ), _voiceColor( voiceColor ), _modelType( type )
 {
 	std::cout << ClapTrap::_modelType + " " << "PARAM constructor called" << std::endl;
 	return ;
@@ -67,6 +66,8 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &clapTrap)
 	this->_meleeAttackDamage = clapTrap._meleeAttackDamage;
 	this->_rangedAttackDamage = clapTrap._rangedAttackDamage;
 	this->_armorDamageReduction = clapTrap._armorDamageReduction;
+	this->_voiceColor = clapTrap._voiceColor;
+	this->_modelType = clapTrap._modelType;
 
 	return *this;
 }

@@ -44,8 +44,6 @@ private:
 
 	static const unsigned int	_vaulthunterPhrasesCount;
 	static const std::string	_vaulthunterPhrases[];
-	static const std::string	_voiceColor;
-	static const std::string	_modelType;
 
 };
 

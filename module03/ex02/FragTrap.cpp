@@ -24,12 +24,12 @@ const std::string	FragTrap::_vaulthunterPhrases[FragTrap::_vaulthunterPhrasesCou
 		"Just point me in the right direction!",
 		"Ooh yeah, watch me! Watch me go!"
 	};
-const std::string	FragTrap::_voiceColor = COLOR_YELLOW;
-const std::string	FragTrap::_modelType = "FR4G-TP";
+//const std::string	FragTrap::_voiceColor = COLOR_YELLOW;
+//const std::string	FragTrap::_modelType = "FR4G-TP";
 
 FragTrap::FragTrap() : ClapTrap( 100, 100, 100, 100,
 								 1, 20, 10,
-								 5, "FragTrap_default" )
+								 5, "FragTrap_default", COLOR_YELLOW, "FR4G-TP" )
 {
 	std::cout << FragTrap::_modelType + " " << "default constructor called" << std::endl;
 	std::cout << FragTrap::_voiceColor << "Recompiling my combat code!" << COLOR_RESET << std::endl;
@@ -54,7 +54,7 @@ FragTrap::FragTrap(FragTrap const & fragTrap)
 
 FragTrap::FragTrap(std::string name) : ClapTrap( 100, 100, 100, 100,
 												 1, 20, 10,
-												 5, name )
+												 5, name, COLOR_YELLOW, "FR4P-TP" )
 {
 	std::cout << FragTrap::_modelType + " " << "str constructor called" << std::endl;
 	std::cout << FragTrap::_voiceColor << "This time it'll be awesome, I promise!" << COLOR_RESET << std::endl;
@@ -75,6 +75,8 @@ FragTrap & FragTrap::operator=(FragTrap const & fragTrap)
 	this->_meleeAttackDamage = fragTrap._meleeAttackDamage;
 	this->_rangedAttackDamage = fragTrap._rangedAttackDamage;
 	this->_armorDamageReduction = fragTrap._armorDamageReduction;
+	this->_voiceColor = fragTrap._voiceColor;
+	this->_modelType = fragTrap._modelType;
 
 	return *this;
 }

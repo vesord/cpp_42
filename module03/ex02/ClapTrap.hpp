@@ -32,7 +32,8 @@ public:
 	ClapTrap( ClapTrap const & clapTrap );
 	ClapTrap( int hitPoint, int hitPointMax, int energyPoint, int energyPointMax,
 		   int level, int meleeAttackDamage, int ragedAttackDamage,
-		   int armorDamageReduction, std::string name);
+		   int armorDamageReduction, std::string name, std::string voiceColor,
+		   std::string type );
 
 	ClapTrap & operator=( ClapTrap const & clapTrap );
 
@@ -51,10 +52,8 @@ protected:
 	int			_rangedAttackDamage;
 	int			_armorDamageReduction;
 
-private:
-
-	static const std::string	_voiceColor;
-	static const std::string	_modelType;
+	std::string	_voiceColor;
+	std::string	_modelType;
 
 };
 

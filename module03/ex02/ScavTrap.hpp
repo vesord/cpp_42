@@ -33,7 +33,7 @@ public:
 	~ScavTrap();
 
 	ScavTrap( ScavTrap const & ScavTrap);
-	ScavTrap & operator=( ScavTrap const & ScavTrap );
+	ScavTrap & operator=( ScavTrap const & scavTrap );
 
 	void	rangedAttack( std::string const & target);
 	void	meleeAttack( std::string const & target);
@@ -43,8 +43,6 @@ private:
 
 	static const unsigned int	_challengePhrasesCount;
 	static const std::string	_challengePhrases[];
-	static const std::string	_voiceColor;
-	static const std::string	_modelType;
 
 };
 

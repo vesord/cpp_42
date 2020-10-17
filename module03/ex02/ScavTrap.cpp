@@ -24,12 +24,13 @@ const std::string	ScavTrap::_challengePhrases[ScavTrap::_challengePhrasesCount] 
 		"Participate and win any hackathon!",
 		"Fail cub3D evaluation 'cos you have different understanding of invalid map!"
 	};
-const std::string	ScavTrap::_voiceColor = COLOR_PURPLE;
-const std::string	ScavTrap::_modelType = "SC4V-TP";
+//const std::string	ScavTrap::_voiceColor = COLOR_PURPLE;
+//const std::string	ScavTrap::_modelType = "SC4V-TP";
 
 ScavTrap::ScavTrap() :	ClapTrap( 100, 100, 100, 100,
 									1, 20, 10,
-									5, "ScavTrap_default" )
+									5, "ScavTrap_default",
+									COLOR_PURPLE, "SC4V-TP")
 {
 	std::cout << ScavTrap::_modelType + " " << "default constructor called" << std::endl;
 	std::cout << ScavTrap::_voiceColor << "Recompiling my combat code!" << COLOR_RESET << std::endl;
@@ -54,27 +55,29 @@ ScavTrap::ScavTrap(ScavTrap const & ScavTrap)
 
 ScavTrap::ScavTrap(std::string name) :	ClapTrap( 100, 100, 100, 100,
 													1, 20, 10,
-													5, name )
+													5, name, COLOR_PURPLE, "SC4V-TP" )
 {
 	std::cout << ScavTrap::_modelType + " " << "str constructor called" << std::endl;
 	std::cout << ScavTrap::_voiceColor << "This time it'll be awesome, I promise!" << COLOR_RESET << std::endl;
 	return ;
 }
 
-ScavTrap & ScavTrap::operator=(ScavTrap const & ScavTrap)
+ScavTrap & ScavTrap::operator=(ScavTrap const & scavTrap)
 {
-	if (this == &ScavTrap)
+	if (this == &scavTrap)
 		return *this;
 
-	this->_name = ScavTrap._name;
-	this->_hitPoints = ScavTrap._hitPoints;
-	this->_hitPointsMax = ScavTrap._hitPointsMax;
-	this->_energyPoints = ScavTrap._energyPoints;
-	this->_energyPointsMax = ScavTrap._energyPointsMax;
-	this->_level = ScavTrap._level;
-	this->_meleeAttackDamage = ScavTrap._meleeAttackDamage;
-	this->_rangedAttackDamage = ScavTrap._rangedAttackDamage;
-	this->_armorDamageReduction = ScavTrap._armorDamageReduction;
+	this->_name = scavTrap._name;
+	this->_hitPoints = scavTrap._hitPoints;
+	this->_hitPointsMax = scavTrap._hitPointsMax;
+	this->_energyPoints = scavTrap._energyPoints;
+	this->_energyPointsMax = scavTrap._energyPointsMax;
+	this->_level = scavTrap._level;
+	this->_meleeAttackDamage = scavTrap._meleeAttackDamage;
+	this->_rangedAttackDamage = scavTrap._rangedAttackDamage;
+	this->_armorDamageReduction = scavTrap._armorDamageReduction;
+	this->_voiceColor = scavTrap._voiceColor;
+	this->_modelType = scavTrap._modelType;
 
 	return *this;
 }
