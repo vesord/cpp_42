@@ -20,19 +20,21 @@ int main()
 
 	std::cout << "Testing constructors" << std::endl;
 	FragTrap fr4g;
-	FragTrap Claptrap("Claptrap");
+	FragTrap claptrap("Claptrap");
 	ScavTrap sc4v;
 	ScavTrap scarvTrap("ScrewBucket");
 
-	std::cout << std::endl <<  "Testing attack and assignment" << std::endl;
-	Claptrap.meleeAttack("Psycho");
+	std::cout << std::endl <<  "Testing attack" << std::endl;
+	claptrap.meleeAttack("Psycho");
 	scarvTrap.rangedAttack("Badass");
 
-	Claptrap.takeDamage(80);
-	Claptrap.beRepaired(1500);
+	std::cout << std::endl << "Testing repairing" << std::endl;
+	claptrap.takeDamage(80);
+	claptrap.beRepaired(1500);
 	scarvTrap.takeDamage(800);
 	scarvTrap.beRepaired(40);
-	fr4g = Claptrap;
+
+	fr4g = claptrap;
 	fr4g.takeDamage(40);
 	sc4v = scarvTrap;
 
