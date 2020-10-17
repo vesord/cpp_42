@@ -25,6 +25,7 @@ const std::string	FragTrap::_vaulthunterPhrases[FragTrap::_vaulthunterPhrasesCou
 		"Ooh yeah, watch me! Watch me go!"
 	};
 const std::string	FragTrap::_voiceColor = COLOR_YELLOW;
+const std::string	FragTrap::_modelType = "FR4G-TP";
 
 FragTrap::FragTrap() :	_hitPoints( 100 ), _hitPointsMax( 100 ),
 						_energyPoints( 100 ), _energyPointsMax( 100 ),
@@ -47,7 +48,9 @@ FragTrap::~FragTrap()
 FragTrap::FragTrap(FragTrap const & fragTrap) : _name( fragTrap._name )
 {
 	std::cout << "Copy constructor called" << std::endl;
-	std::cout << FragTrap::_voiceColor << "Look out everybody! Things are about to get awesome!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor <<
+				"Look out everybody! Things are about to get awesome!"
+				<< COLOR_RESET << std::endl;
 
 	*this = fragTrap;
 	return ;
@@ -84,7 +87,7 @@ FragTrap & FragTrap::operator=(FragTrap const & fragTrap)
 
 void	FragTrap::rangedAttack(const std::string &target)
 {
-	std::cout << "FR4G-TP " << this->_name << " attacks " << target <<
+	std::cout << FragTrap::_modelType + " " << this->_name << " attacks " << target <<
 			" at range, causing " << this->_rangedAttackDamage <<
 			" points of damage!" << std::endl;
 
@@ -93,7 +96,7 @@ void	FragTrap::rangedAttack(const std::string &target)
 
 void	FragTrap::meleeAttack(const std::string &target)
 {
-	std::cout << "FR4G-TP " << this->_name << " attacks " << target <<
+	std::cout << FragTrap::_modelType + " " << this->_name << " attacks " << target <<
 			  " in melee, causing " << this->_meleeAttackDamage <<
 			  " points of damage!" << std::endl;
 
@@ -105,7 +108,7 @@ void	FragTrap::takeDamage(unsigned int amount)
 	this->_hitPoints -= amount - this->_armorDamageReduction;
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
-	std::cout << "FR4G-TP " << this->_name << " has taken " << amount <<
+	std::cout << FragTrap::_modelType + " " << this->_name << " has taken " << amount <<
 				" damage. Armor absorbs some, so HP now: " << this->_hitPoints <<
 				std::endl;
 
@@ -117,7 +120,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 	this->_hitPoints += amount;
 	if (this->_hitPoints > this->_hitPointsMax)
 		this->_hitPoints = this->_hitPointsMax;
-	std::cout << "FR4G-TP " << this->_name << " has repair " << amount <<
+	std::cout << FragTrap::_modelType + " " << this->_name << " has repair " << amount <<
 				" HP. HP now: " << this->_hitPoints << std::endl;
 
 	std::cout << FragTrap::_voiceColor << "Hit me, baby!" << COLOR_RESET << std::endl;
@@ -128,7 +131,7 @@ void	FragTrap::vaulthunter_dot_exe(const std::string &target)
 	if (this->_energyPoints >= 25)
 	{
 		this->_energyPoints -= 25;
-		std::cout << "FR4G-TP " << this->_name << " uses ULTIMATE on " << target
+		std::cout << FragTrap::_modelType + " " << this->_name << " uses ULTIMATE on " << target
 				  << std::endl;
 		std::cout << FragTrap::_voiceColor <<
 			FragTrap::_vaulthunterPhrases[rand() % FragTrap::_vaulthunterPhrasesCount] <<
@@ -136,7 +139,7 @@ void	FragTrap::vaulthunter_dot_exe(const std::string &target)
 	}
 	else
 	{
-		std::cout << "FR4G-TP " << this->_name << " is run out of energy." << std::endl;
+		std::cout << FragTrap::_modelType + " " << this->_name << " is run out of energy." << std::endl;
 		std::cout << FragTrap::_voiceColor << "I need more power!" << COLOR_RESET << std::endl;
 	}
 }
