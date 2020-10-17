@@ -14,7 +14,15 @@
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-#include <string>
+# include <string>
+
+# ifndef COLOR_RESET
+#  define COLOR_RESET "\x1b[0m"
+# endif
+
+# ifndef COLOR_YELLOW
+#  define COLOR_YELLOW "\x1b[1;33m"
+# endif
 
 class FragTrap {
 
@@ -47,6 +55,7 @@ private:
 
 	static const unsigned int	_vaulthunterPhrasesCount;
 	static const std::string	_vaulthunterPhrases[];
+	static const std::string	_voiceColor;
 
 };
 

@@ -12,8 +12,6 @@
 
 #include "FragTrap.hpp"
 #include <iostream>
-#define COLOR_RESET "\x1b[0m"
-#define COLOR_YELLOW "\x1b[1;33m"
 
 const unsigned int	FragTrap::_vaulthunterPhrasesCount = 7;
 const std::string	FragTrap::_vaulthunterPhrases[FragTrap::_vaulthunterPhrasesCount] =
@@ -26,6 +24,7 @@ const std::string	FragTrap::_vaulthunterPhrases[FragTrap::_vaulthunterPhrasesCou
 		"Just point me in the right direction!",
 		"Ooh yeah, watch me! Watch me go!"
 	};
+const std::string	FragTrap::_voiceColor = COLOR_YELLOW;
 
 FragTrap::FragTrap() :	_hitPoints( 100 ), _hitPointsMax( 100 ),
 						_energyPoints( 100 ), _energyPointsMax( 100 ),
@@ -34,21 +33,21 @@ FragTrap::FragTrap() :	_hitPoints( 100 ), _hitPointsMax( 100 ),
 						_armorDamageReduction( 5 )
 {
 	std::cout << "Default constructor called" << std::endl;
-	std::cout << COLOR_YELLOW << "Recompiling my combat code!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor << "Recompiling my combat code!" << COLOR_RESET << std::endl;
 	return ;
 }
 
 FragTrap::~FragTrap()
 {
 	std::cout << "Destructor called" << std::endl;
-	std::cout << COLOR_YELLOW << "Robot down!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor << "Robot down!" << COLOR_RESET << std::endl;
 	return ;
 }
 
 FragTrap::FragTrap(FragTrap const & fragTrap) : _name( fragTrap._name )
 {
 	std::cout << "Copy constructor called" << std::endl;
-	std::cout << COLOR_YELLOW << "Look out everybody! Things are about to get awesome!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor << "Look out everybody! Things are about to get awesome!" << COLOR_RESET << std::endl;
 
 	*this = fragTrap;
 	return ;
@@ -61,7 +60,7 @@ FragTrap::FragTrap(std::string name) : _hitPoints( 100 ), _hitPointsMax( 100 ),
 									   _armorDamageReduction( 5 )
 {
 	std::cout << "Str constructor called" << std::endl;
-	std::cout << COLOR_YELLOW << "This time it'll be awesome, I promise!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor << "This time it'll be awesome, I promise!" << COLOR_RESET << std::endl;
 	return ;
 }
 
@@ -89,7 +88,7 @@ void	FragTrap::rangedAttack(const std::string &target)
 			" at range, causing " << this->_rangedAttackDamage <<
 			" points of damage!" << std::endl;
 
-	std::cout << COLOR_YELLOW << "WOW! I hit 'em!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor << "WOW! I hit 'em!" << COLOR_RESET << std::endl;
 }
 
 void	FragTrap::meleeAttack(const std::string &target)
@@ -98,7 +97,7 @@ void	FragTrap::meleeAttack(const std::string &target)
 			  " in melee, causing " << this->_meleeAttackDamage <<
 			  " points of damage!" << std::endl;
 
-	std::cout << COLOR_YELLOW << "Take that!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor << "Take that!" << COLOR_RESET << std::endl;
 }
 
 void	FragTrap::takeDamage(unsigned int amount)
@@ -110,7 +109,7 @@ void	FragTrap::takeDamage(unsigned int amount)
 				" damage. Armor absorbs some, so HP now: " << this->_hitPoints <<
 				std::endl;
 
-	std::cout << COLOR_YELLOW << "My robotic flesh! AAHH!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor << "My robotic flesh! AAHH!" << COLOR_RESET << std::endl;
 }
 
 void	FragTrap::beRepaired(unsigned int amount)
@@ -121,7 +120,7 @@ void	FragTrap::beRepaired(unsigned int amount)
 	std::cout << "FR4G-TP " << this->_name << " has repair " << amount <<
 				" HP. HP now: " << this->_hitPoints << std::endl;
 
-	std::cout << COLOR_YELLOW << "Hit me, baby!" << COLOR_RESET << std::endl;
+	std::cout << FragTrap::_voiceColor << "Hit me, baby!" << COLOR_RESET << std::endl;
 }
 
 void	FragTrap::vaulthunter_dot_exe(const std::string &target)
@@ -131,13 +130,13 @@ void	FragTrap::vaulthunter_dot_exe(const std::string &target)
 		this->_energyPoints -= 25;
 		std::cout << "FR4G-TP " << this->_name << " uses ULTIMATE on " << target
 				  << std::endl;
-		std::cout << COLOR_YELLOW <<
+		std::cout << FragTrap::_voiceColor <<
 			FragTrap::_vaulthunterPhrases[rand() % FragTrap::_vaulthunterPhrasesCount] <<
 			COLOR_RESET << std::endl;
 	}
 	else
 	{
 		std::cout << "FR4G-TP " << this->_name << " is run out of energy." << std::endl;
-		std::cout << COLOR_YELLOW << "I need more power!" << COLOR_RESET << std::endl;
+		std::cout << FragTrap::_voiceColor << "I need more power!" << COLOR_RESET << std::endl;
 	}
 }
