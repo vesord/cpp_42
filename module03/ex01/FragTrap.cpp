@@ -45,7 +45,7 @@ FragTrap::~FragTrap()
 	return ;
 }
 
-FragTrap::FragTrap(FragTrap const & fragTrap) : _name( fragTrap._name )
+FragTrap::FragTrap(FragTrap const & fragTrap)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	std::cout << FragTrap::_voiceColor << "Look out everybody! Things are about to get awesome!" << COLOR_RESET << std::endl;

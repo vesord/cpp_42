@@ -45,7 +45,7 @@ ScavTrap::~ScavTrap()
 	return ;
 }
 
-ScavTrap::ScavTrap(ScavTrap const & ScavTrap) : _name( ScavTrap._name )
+ScavTrap::ScavTrap(ScavTrap const & ScavTrap)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	std::cout << ScavTrap::_voiceColor << "Look out everybody! Things are about to get awesome!" << COLOR_RESET << std::endl;
