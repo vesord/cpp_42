@@ -33,12 +33,14 @@ public:
 	ClapTrap( int hitPoint, int hitPointMax, int energyPoint, int energyPointMax,
 		   int level, int meleeAttackDamage, int ragedAttackDamage,
 		   int armorDamageReduction, std::string name, std::string voiceColor,
-		   std::string type );
+		   std::string modelType);
 
 	ClapTrap & operator=( ClapTrap const & clapTrap );
 
 	void	takeDamage( unsigned int amount );
 	void	beRepaired( unsigned int amount );
+	void	rangedAttack( std::string const & target);
+	void	meleeAttack( std::string const & target);
 
 protected:
 

@@ -39,7 +39,7 @@ int main()
 	sc4v = scarvTrap;
 
 
-	std::cout << std::endl <<  "Testing vaulthunter_dot_exe" << std::endl;
+	std::cout << std::endl <<  "Testing special skills" << std::endl;
 	fr4g.vaulthunter_dot_exe("Baddest ass");
 	fr4g.vaulthunter_dot_exe("Baddest ass");
 	sc4v.challengeNewcomer();

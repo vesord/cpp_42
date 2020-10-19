@@ -36,8 +36,6 @@ public:
 	FragTrap( FragTrap const & fragTrap);
 	FragTrap & operator=( FragTrap const & fragTrap );
 
-	void	rangedAttack( std::string const & target);
-	void	meleeAttack( std::string const & target);
 	void	vaulthunter_dot_exe ( std::string const & target );
 
 private:

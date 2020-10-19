@@ -20,35 +20,34 @@ ClapTrap::ClapTrap() : _hitPoints( 1 ), _hitPointsMax( 1 ),
 					   _name( "default_claptrap" ), _voiceColor( COLOR_GREEN ),
 					   _modelType( "CL4P-TP")
 {
-	std::cout << ClapTrap::_modelType + " " << "Default constructor called" << std::endl;
+	std::cout << this->_modelType << " BASE default constructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << ClapTrap::_modelType + " " << "Destructor called" << std::endl;
+	std::cout << this->_modelType << " BASE destructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &clapTrap)
 {
-	std::cout << ClapTrap::_modelType + " " << "Copy constructor called" << std::endl;
+	std::cout << this->_modelType << " BASE copy constructor called" << std::endl;
 	*this = clapTrap;
 }
 
 ClapTrap::ClapTrap(int hitPoint, int hitPointMax, int energyPoint,
 				   int energyPointMax, int level, int meleeAttackDamage,
 				   int ragedAttackDamage, int armorDamageReduction,
-				   std::string name, std::string voiceColor,
-				   std::string type) :
+				   std::string name, std::string voiceColor, std::string modelType ) :
 				   _hitPoints( hitPoint ), _hitPointsMax( hitPointMax ),
 				   _energyPoints( energyPoint ), _energyPointsMax( energyPointMax ),
 				   _level( level ), _meleeAttackDamage( meleeAttackDamage ),
 				   _rangedAttackDamage( ragedAttackDamage ),
 				   _armorDamageReduction( armorDamageReduction ),
-				   _name( name ), _voiceColor( voiceColor ), _modelType( type )
+				   _name( name ), _voiceColor( voiceColor ), _modelType( modelType )
 {
-	std::cout << ClapTrap::_modelType + " " << "PARAM constructor called" << std::endl;
+	std::cout << this->_modelType << " BASE constructor called" << std::endl;
 	return ;
 }
 
@@ -72,16 +71,35 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &clapTrap)
 	return *this;
 }
 
+void	ClapTrap::rangedAttack(const std::string &target)
+{
+	std::cout << this->_modelType + " " << this->_name << " attacks " << target <<
+			  " at range, causing " << this->_rangedAttackDamage <<
+			  " points of damage!" << std::endl;
+
+	std::cout << this->_voiceColor << "WOW! I hit 'em!" << COLOR_RESET << std::endl;
+}
+
+void	ClapTrap::meleeAttack(const std::string &target)
+{
+	std::cout << this->_modelType + " " << this->_name << " attacks " << target <<
+			  " in melee, causing " << this->_meleeAttackDamage <<
+			  " points of damage!" << std::endl;
+
+	std::cout << this->_voiceColor << "Take that!" << COLOR_RESET << std::endl;
+}
+
+
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	this->_hitPoints -= amount - this->_armorDamageReduction;
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
-	std::cout << ClapTrap::_modelType + " " << this->_name << " has taken " << amount <<
+	std::cout << this->_modelType << this->_name << " has taken " << amount <<
 			  " damage. Armor absorbs some, so HP now: " << this->_hitPoints <<
 			  std::endl;
 
-	std::cout << ClapTrap::_voiceColor << "My robotic flesh! AAHH!" << COLOR_RESET << std::endl;
+	std::cout << this->_voiceColor << "My robotic flesh! AAHH!" << COLOR_RESET << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -89,8 +107,8 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	this->_hitPoints += amount;
 	if (this->_hitPoints > this->_hitPointsMax)
 		this->_hitPoints = this->_hitPointsMax;
-	std::cout << ClapTrap::_modelType + " " << this->_name << " has repair " << amount <<
+	std::cout << this->_modelType << this->_name << " has repair " << amount <<
 			  " HP. HP now: " << this->_hitPoints << std::endl;
 
-	std::cout << ClapTrap::_voiceColor << "Hit me, baby!" << COLOR_RESET << std::endl;
+	std::cout << this->_voiceColor << "Hit me, baby!" << COLOR_RESET << std::endl;
 }
