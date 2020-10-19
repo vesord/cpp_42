@@ -95,7 +95,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	this->_hitPoints -= amount - this->_armorDamageReduction;
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
-	std::cout << this->_modelType << this->_name << " has taken " << amount <<
+	std::cout << this->_modelType + " " << this->_name << " has taken " << amount <<
 			  " damage. Armor absorbs some, so HP now: " << this->_hitPoints <<
 			  std::endl;
 
@@ -107,7 +107,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	this->_hitPoints += amount;
 	if (this->_hitPoints > this->_hitPointsMax)
 		this->_hitPoints = this->_hitPointsMax;
-	std::cout << this->_modelType << this->_name << " has repair " << amount <<
+	std::cout << this->_modelType + " " << this->_name << " has repair " << amount <<
 			  " HP. HP now: " << this->_hitPoints << std::endl;
 
 	std::cout << this->_voiceColor << "Hit me, baby!" << COLOR_RESET << std::endl;
