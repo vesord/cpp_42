@@ -25,12 +25,22 @@ const std::string	ScavTrap::_challengePhrases[ScavTrap::_challengePhrasesCount] 
 		"Fail cub3D evaluation 'cos you have different understanding of invalid map!"
 	};
 
-ScavTrap::ScavTrap() :	ClapTrap( 100, 100, 100, 100,
-									1, 20, 10,
-									5, "ScavTrap_default",
-									 COLOR_PURPLE, "SC4V-TP" )
+ScavTrap::ScavTrap() :	ClapTrap()
 {
 	std::cout << this->_modelType << " default constructor called" << std::endl;
+
+	this->_name = "scav_default";
+	this->_hitPoints = 100;
+	this->_hitPointsMax = 100;
+	this->_energyPoints = 50;
+	this->_energyPointsMax = 50;
+	this->_level = 1;
+	this->_meleeAttackDamage = 20;
+	this->_rangedAttackDamage = 15;
+	this->_armorDamageReduction = 3;
+	this->_voiceColor = COLOR_PURPLE;
+	this->_modelType = "SC4V-TP";
+
 	std::cout << this->_voiceColor << "Recompiling my combat code!" << COLOR_RESET << std::endl;
 	return ;
 }
@@ -51,12 +61,22 @@ ScavTrap::ScavTrap(ScavTrap const & ScavTrap)
 	return ;
 }
 
-ScavTrap::ScavTrap(std::string name) :	ClapTrap( 100, 100, 100, 100,
-													1, 20, 10,
-													5, name,
-													COLOR_PURPLE, "SC4V-TP" )
+ScavTrap::ScavTrap(std::string name) :	ClapTrap()
 {
 	std::cout << this->_modelType << "str constructor called" << std::endl;
+
+	this->_name = name;
+	this->_hitPoints = 100;
+	this->_hitPointsMax = 100;
+	this->_energyPoints = 50;
+	this->_energyPointsMax = 50;
+	this->_level = 1;
+	this->_meleeAttackDamage = 20;
+	this->_rangedAttackDamage = 15;
+	this->_armorDamageReduction = 3;
+	this->_voiceColor = COLOR_PURPLE;
+	this->_modelType = "SC4V-TP";
+
 	std::cout << this->_voiceColor << "This time it'll be awesome, I promise!" << COLOR_RESET << std::endl;
 	return ;
 }
@@ -87,4 +107,22 @@ void	ScavTrap::challengeNewcomer( void )
 		std::cout << this->_voiceColor <<
 				  ScavTrap::_challengePhrases[rand() % ScavTrap::_challengePhrasesCount] <<
 				  COLOR_RESET << std::endl;
+}
+
+void	ScavTrap::rangedAttack(const std::string &target)
+{
+	std::cout << this->_modelType + " " << this->_name << " attacks " << target <<
+			  " at range, causing " << this->_rangedAttackDamage <<
+			  " points of damage!" << std::endl;
+
+	std::cout << this->_voiceColor << "WOW! I hit 'em!" << COLOR_RESET << std::endl;
+}
+
+void	ScavTrap::meleeAttack(const std::string &target)
+{
+	std::cout << this->_modelType + " " << this->_name << " attacks " << target <<
+			  " in melee, causing " << this->_meleeAttackDamage <<
+			  " points of damage!" << std::endl;
+
+	std::cout << this->_voiceColor << "Take that!" << COLOR_RESET << std::endl;
 }

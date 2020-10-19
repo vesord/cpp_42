@@ -16,6 +16,10 @@
 #include "NinjaTrap.hpp"
 #include "FragTrap.hpp"
 
+# ifndef COLOR_ULTIMATE
+#  define COLOR_ULTIMATE "\x1b[30;41m"
+# endif
+
 class SuperTrap : public FragTrap, public NinjaTrap {
 
 public:
@@ -27,7 +31,10 @@ public:
 
 	SuperTrap & operator=( SuperTrap const & superTrap );
 
-private:
+	using FragTrap::rangedAttack;
+	using NinjaTrap::meleeAttack;
+
+	void	describeYourself() const;
 
 };
 

@@ -25,41 +25,59 @@ const std::string	FragTrap::_vaulthunterPhrases[FragTrap::_vaulthunterPhrasesCou
 		"Ooh yeah, watch me! Watch me go!"
 	};
 
-FragTrap::FragTrap() : ClapTrap( 100, 100, 100, 100,
-								 1, 20, 10,
-								 5, "FragTrap_default",
-								 COLOR_YELLOW, "FR4G-TP" )
+FragTrap::FragTrap() : ClapTrap()
 
 {
-	this->_modelType = "FR4G-TP";
+	std::cout << "FRAG default constructor called" << std::endl;
+
+	this->_name = "frag_default";
+	this->_hitPoints = 100;
+	this->_hitPointsMax = 100;
+	this->_energyPoints = 100;
+	this->_energyPointsMax = 100;
+	this->_level = 1;
+	this->_meleeAttackDamage = 20;
+	this->_rangedAttackDamage = 10;
+	this->_armorDamageReduction = 5;
 	this->_voiceColor = COLOR_YELLOW;
-	std::cout << this->_modelType << " default constructor called" << std::endl;
+	this->_modelType = "FR4G-TP";
+
 	std::cout << this->_voiceColor << "Recompiling my combat code!" << COLOR_RESET << std::endl;
 	return ;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << this->_modelType << " destructor called" << std::endl;
+	std::cout << this->_modelType << " FRAG destructor called" << std::endl;
 	std::cout << this->_voiceColor << "Robot down!" << COLOR_RESET << std::endl;
 	return ;
 }
 
 FragTrap::FragTrap(FragTrap const & fragTrap)
 {
-	std::cout << this->_modelType << " copy constructor called" << std::endl;
+	std::cout << this->_modelType << " FRAG copy constructor called" << std::endl;
 	std::cout << this->_voiceColor << "Look out everybody! Things are about to get awesome!" << COLOR_RESET << std::endl;
 
 	*this = fragTrap;
 	return ;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap( 100, 100, 100, 100,
-												 1, 20, 10,
-												 5, name,
-												  COLOR_YELLOW, "FR4G-TP" )
+FragTrap::FragTrap(std::string name) : ClapTrap()
 {
-	std::cout << this->_modelType << " str constructor called" << std::endl;
+	std::cout << "FRAG str constructor called" << std::endl;
+
+	this->_name = name;
+	this->_hitPoints = 100;
+	this->_hitPointsMax = 100;
+	this->_energyPoints = 100;
+	this->_energyPointsMax = 100;
+	this->_level = 1;
+	this->_meleeAttackDamage = 20;
+	this->_rangedAttackDamage = 10;
+	this->_armorDamageReduction = 5;
+	this->_voiceColor = COLOR_YELLOW;
+	this->_modelType = "FR4G-TP";
+
 	std::cout << this->_voiceColor << "This time it'll be awesome, I promise!" << COLOR_RESET << std::endl;
 	return ;
 }
@@ -101,3 +119,22 @@ void	FragTrap::vaulthunter_dot_exe(const std::string &target)
 		std::cout << this->_voiceColor << "I need more power!" << COLOR_RESET << std::endl;
 	}
 }
+
+void	FragTrap::rangedAttack(const std::string &target)
+{
+	std::cout << this->_modelType + " FRAAAG " << this->_name << " attacks " << target <<
+			  " at range, causing " << this->_rangedAttackDamage <<
+			  " points of damage!" << std::endl;
+
+	std::cout << this->_voiceColor << "WOW! I hit 'em!" << COLOR_RESET << std::endl;
+}
+
+void	FragTrap::meleeAttack(const std::string &target)
+{
+	std::cout << this->_modelType + " FRAAAG " << this->_name << " attacks " << target <<
+			  " in melee, causing " << this->_meleeAttackDamage <<
+			  " points of damage!" << std::endl;
+
+	std::cout << this->_voiceColor << "Take that!" << COLOR_RESET << std::endl;
+}
+

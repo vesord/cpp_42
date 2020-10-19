@@ -13,37 +13,57 @@
 #include "NinjaTrap.hpp"
 #include <iostream>
 
-NinjaTrap::NinjaTrap() : ClapTrap(60, 60, 120,
-								  120, 1, 60,
-								  5, 0,
-								  "ninja_default", COLOR_NINJA, "NINJA-TP")
+NinjaTrap::NinjaTrap() : ClapTrap()
 {
-	std::cout << this->_modelType << " default constructor called" << std::endl;
+	std::cout << "NINJA default constructor called" << std::endl;
+
+	this->_name = "ninjaTrap_default";
+	this->_hitPoints = 60;
+	this->_hitPointsMax = 60;
+	this->_energyPoints = 120;
+	this->_energyPointsMax = 120;
+	this->_level = 1;
+	this->_meleeAttackDamage = 60;
+	this->_rangedAttackDamage = 5;
+	this->_armorDamageReduction = 0;
+	this->_voiceColor = COLOR_NINJA;
+	this->_modelType = "NINJA-TP";
+
 	std::cout << this->_voiceColor << "In the shadow!" << COLOR_RESET << std::endl;
 	return ;
 }
 
 NinjaTrap::~NinjaTrap()
 {
-	std::cout << this->_modelType << " destructor called" << std::endl;
+	std::cout << this->_modelType << " NINJA destructor called" << std::endl;
 	std::cout << this->_voiceColor << "Robot down!" << COLOR_RESET << std::endl;
 	return ;
 }
 
 NinjaTrap::NinjaTrap(const NinjaTrap &ninjaTrap)
 {
-	std::cout << this->_modelType << " copy constructor called" << std::endl;
+	std::cout << this->_modelType << " NINJA copy constructor called" << std::endl;
 	std::cout << this->_voiceColor << "Cloning technique!" << COLOR_RESET << std::endl;
 	*this = ninjaTrap;
 	return ;
 }
 
-NinjaTrap::NinjaTrap(std::string name) : ClapTrap(60, 60, 120,
-												  120, 1, 60,
-												  5, 0,
-												  name, COLOR_NINJA, "NINJA-TP")
+NinjaTrap::NinjaTrap(std::string name) : ClapTrap()
 {
-	std::cout << this->_modelType << " str constructor called" << std::endl;
+	std::cout << "NINJA str constructor called" << std::endl;
+
+	this->_name = name;
+	this->_hitPoints = 60;
+	this->_hitPointsMax = 60;
+	this->_energyPoints = 120;
+	this->_energyPointsMax = 120;
+	this->_level = 1;
+	this->_meleeAttackDamage = 60;
+	this->_rangedAttackDamage = 5;
+	this->_armorDamageReduction = 0;
+	this->_voiceColor = COLOR_NINJA;
+	this->_modelType = "NINJA-TP";
+
 	std::cout << this->_voiceColor << "Ready to scout!" << COLOR_RESET << std::endl;
 	return ;
 }
@@ -100,4 +120,22 @@ void	NinjaTrap::ninjaShoebox(NinjaTrap &ninjaTrap)
 	ninjaTrap.beRepaired(this->_meleeAttackDamage);
 	std::cout << this->_voiceColor << "Moving forward." <<
 								   COLOR_RESET << std::endl;
+}
+
+void	NinjaTrap::rangedAttack(const std::string &target)
+{
+	std::cout << this->_modelType + " NIIINJA " << this->_name << " attacks " << target <<
+			  " at range, causing " << this->_rangedAttackDamage <<
+			  " points of damage!" << std::endl;
+
+	std::cout << this->_voiceColor << "WOW! I hit 'em!" << COLOR_RESET << std::endl;
+}
+
+void	NinjaTrap::meleeAttack(const std::string &target)
+{
+	std::cout << this->_modelType + " NIIINJA " << this->_name << " attacks " << target <<
+			  " in melee, causing " << this->_meleeAttackDamage <<
+			  " points of damage!" << std::endl;
+
+	std::cout << this->_voiceColor << "Take that!" << COLOR_RESET << std::endl;
 }

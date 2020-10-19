@@ -32,23 +32,8 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap &clapTrap)
 {
-	std::cout << this->_modelType << " BASE copy constructor called" << std::endl;
+	std::cout << this->_modelType << "BASE copy constructor called" << std::endl;
 	*this = clapTrap;
-}
-
-ClapTrap::ClapTrap(int hitPoint, int hitPointMax, int energyPoint,
-				   int energyPointMax, int level, int meleeAttackDamage,
-				   int ragedAttackDamage, int armorDamageReduction,
-				   std::string name, std::string voiceColor, std::string modelType ) :
-				   _hitPoints( hitPoint ), _hitPointsMax( hitPointMax ),
-				   _energyPoints( energyPoint ), _energyPointsMax( energyPointMax ),
-				   _level( level ), _meleeAttackDamage( meleeAttackDamage ),
-				   _rangedAttackDamage( ragedAttackDamage ),
-				   _armorDamageReduction( armorDamageReduction ),
-				   _name( name ), _voiceColor( voiceColor ), _modelType( modelType )
-{
-	std::cout << this->_modelType << " BASE constructor called" << std::endl;
-	return ;
 }
 
 ClapTrap & ClapTrap::operator=(const ClapTrap &clapTrap)
@@ -70,25 +55,6 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &clapTrap)
 
 	return *this;
 }
-
-void	ClapTrap::rangedAttack(const std::string &target)
-{
-	std::cout << this->_modelType + " " << this->_name << " attacks " << target <<
-			  " at range, causing " << this->_rangedAttackDamage <<
-			  " points of damage!" << std::endl;
-
-	std::cout << this->_voiceColor << "WOW! I hit 'em!" << COLOR_RESET << std::endl;
-}
-
-void	ClapTrap::meleeAttack(const std::string &target)
-{
-	std::cout << this->_modelType + " " << this->_name << " attacks " << target <<
-			  " in melee, causing " << this->_meleeAttackDamage <<
-			  " points of damage!" << std::endl;
-
-	std::cout << this->_voiceColor << "Take that!" << COLOR_RESET << std::endl;
-}
-
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {

@@ -38,6 +38,9 @@ public:
 
 	void	vaulthunter_dot_exe ( std::string const & target );
 
+	void	rangedAttack( std::string const & target);
+	void	meleeAttack( std::string const & target);
+
 protected:
 
 	static const unsigned int	_vaulthunterPhrasesCount;

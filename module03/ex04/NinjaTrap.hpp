@@ -36,12 +36,13 @@ public:
 
 	NinjaTrap & operator=( NinjaTrap const & ninjaTrap );
 
+	void	rangedAttack( std::string const & target);
+	void	meleeAttack( std::string const & target);
+
 	void ninjaShoebox( NinjaTrap & ninjaTrap );
 	void ninjaShoebox( ClapTrap & clapTrap );
 	void ninjaShoebox( FragTrap & fragTrap );
 	void ninjaShoebox( ScavTrap & scavTrap );
-
-private:
 
 };
 

@@ -13,6 +13,7 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "NinjaTrap.hpp"
+#include "SuperTrap.hpp"
 #include <iostream>
 
 int main()
@@ -20,23 +21,21 @@ int main()
 	srand(time2posix(time(nullptr)));
 
 	std::cout << "Testing constructors" << std::endl;
-	NinjaTrap ninjaDefault;
-	NinjaTrap ninjaTrap("NarutoTrap");
-	ClapTrap dum;
-	FragTrap fragTrap("FRAAAAAAG");
-	ScavTrap scavTrap("SCAAAAAAV");
+	SuperTrap superTrap;
 
-	std::cout << std::endl << "Testing ninja" << std::endl;
-	ninjaTrap.rangedAttack("Just ranged target");
-	ninjaTrap.meleeAttack("Just melee target");
+	superTrap.describeYourself();
+	std::cout << "SUPERTRAP SIZE: " << sizeof(superTrap) << std::endl << std::endl;
 
-	ninjaTrap.takeDamage(59);
-	ninjaTrap.beRepaired(44);
+	std::cout << "Testing attacks" << std::endl;
+	superTrap.meleeAttack("Target");
+	superTrap.rangedAttack("Target");
 
-	std::cout << std::endl << "Testing ninjaSHOEBOX" << std::endl;
-	ninjaTrap.ninjaShoebox(ninjaDefault);
-	ninjaTrap.ninjaShoebox(dum);
-	ninjaTrap.ninjaShoebox(fragTrap);
-	ninjaTrap.ninjaShoebox(scavTrap);
+	std::cout << std::endl << std::cout << "Testing special skills" << std::endl;
+	NinjaTrap ninja;
+	FragTrap frag;
+	superTrap.ninjaShoebox(ninja);
+	superTrap.ninjaShoebox(frag);
+	superTrap.vaulthunter_dot_exe("Yet another target");
+	superTrap.vaulthunter_dot_exe("Yet another target again");
 
 }
