@@ -19,7 +19,6 @@ class Enemy {
 
 public:
 	Enemy(int hp, std::string const & type);
-	Enemy( Enemy const & enemy );
 
 	virtual ~Enemy();
 
@@ -31,6 +30,7 @@ public:
 private:
 
 	Enemy();
+	Enemy( Enemy const & enemy );
 	Enemy & operator=( Enemy const & enemy );
 
 protected:

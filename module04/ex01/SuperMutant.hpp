@@ -21,13 +21,14 @@ public:
 
 	SuperMutant();
 	virtual ~SuperMutant();
-	SuperMutant( SuperMutant const & superMutant );
-
-	SuperMutant & operator=( SuperMutant const & superMutant );
 
 	virtual void takeDamage( int dmg );
 
 private:
+
+	SuperMutant( SuperMutant const & superMutant );
+
+	SuperMutant & operator=( SuperMutant const & superMutant );
 
 };
 

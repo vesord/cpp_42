@@ -12,6 +12,7 @@
 
 #include "Character.hpp"
 #include "RadScorpion.hpp"
+#include "SuperMutant.hpp"
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"
 #include <iostream>
@@ -39,6 +40,40 @@ int main()
 	std::cout << *me;
 	me->attack(b);
 	std::cout << *me;
+
+	std::cout << std::endl << "<--- MY TESTS --->" << std::endl;
+
+
+	Character* noob = new Character("noob");
+
+	Enemy* sm = new SuperMutant();
+
+	std::cout << *noob;
+
+	me->equip(pr);
+	noob->equip(pr);
+
+	std::cout << *me << *noob;
+	me->attack(sm);
+	noob->attack(sm);
+	std::cout << *me << *noob;
+	me->attack(sm);
+	noob->attack(sm);
+	std::cout << *me << *noob;
+	me->attack(sm);
+	me->attack(sm);
+	me->attack(sm);
+	me->attack(sm);
+	me->equip( nullptr );
+	std::cout << *me << *noob;
+	noob->equip(pf);
+	noob->attack(sm);
+//	noob->attack(sm);
+
+	delete noob;
+	delete me;
+	delete pr;
+	delete pf;
 
 	return 0;
 }

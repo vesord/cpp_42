@@ -22,13 +22,14 @@ public:
 
 	RadScorpion();
 	virtual ~RadScorpion();
-	RadScorpion(RadScorpion const & radScorpion );
-
-	RadScorpion & operator=(RadScorpion const & radScorpion );
 
 	virtual void takeDamage( int dmg );
 
 private:
+
+	RadScorpion(RadScorpion const & radScorpion );
+
+	RadScorpion & operator=(RadScorpion const & radScorpion );
 	
 };
 

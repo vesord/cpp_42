@@ -24,6 +24,9 @@ public:
 
 	Character(std::string const & name);
 	~Character();
+	Character( Character const & character );
+
+	Character & operator=( Character const & character );
 
 	void recoverAP();
 	void equip( AWeapon * weapon );
@@ -37,9 +40,6 @@ public:
 private:
 
 	Character();
-	Character( Character const & character );
-
-	Character & operator=( Character const & character );
 
 	std::string _name;
 	int			_ap;

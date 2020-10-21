@@ -21,13 +21,14 @@ public:
 
 	PlasmaRifle();
 	virtual ~PlasmaRifle();
-	PlasmaRifle( PlasmaRifle const & plasmaRifle );
-
-	PlasmaRifle & operator=( PlasmaRifle const & plasmaRifle );
 
 	virtual void attack() const;
 
 private:
+
+	PlasmaRifle( PlasmaRifle const & plasmaRifle );
+
+	PlasmaRifle & operator=( PlasmaRifle const & plasmaRifle );
 
 };
 

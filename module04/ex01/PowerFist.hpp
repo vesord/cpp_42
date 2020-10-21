@@ -21,13 +21,14 @@ public:
 
 	PowerFist();
 	virtual ~PowerFist();
-	PowerFist( PowerFist const & powerFist );
-
-	PowerFist & operator=( PowerFist const & powerFist );
 
 	virtual void attack() const;
 
 private:
+
+	PowerFist( PowerFist const & powerFist );
+
+	PowerFist & operator=( PowerFist const & powerFist );
 
 };
 

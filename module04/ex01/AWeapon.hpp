@@ -20,20 +20,19 @@ class AWeapon {
 public:
 
 	AWeapon(std::string const & name, int apcost, int damage);
-	AWeapon( AWeapon const & aWeapon );
 	virtual ~AWeapon();
 
 	std::string const & getName( void ) const;
 
 	int getAPCost() const;
 	int getDamage() const;
-
 	virtual void attack() const = 0;
-
 private:
 
 	AWeapon();
+	AWeapon( AWeapon const & aWeapon );
 	AWeapon & operator=( AWeapon const & aWeapon );
+
 
 protected:
 
