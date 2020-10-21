@@ -1,45 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.hpp                                        :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matrus <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 13:25:34 by matrus            #+#    #+#             */
-/*   Updated: 2020/10/21 13:25:37 by matrus           ###   ########.fr       */
+/*   Created: 2020/10/21 14:17:07 by matrus            #+#    #+#             */
+/*   Updated: 2020/10/21 14:17:09 by matrus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP
-#define AWEAPON_HPP
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 
 #include <string>
 
-class AWeapon {
+class Enemy {
 
 public:
+	Enemy(int hp, std::string const & type);
+	Enemy( Enemy const & enemy );
 
-	AWeapon(std::string const & name, int apcost, int damage);
-	AWeapon( AWeapon const & aWeapon );
-	virtual ~AWeapon();
+	virtual ~Enemy();
 
-	std::string const & getName( void ) const;
+	std::string const & getType() const;
+	int getHP() const;
 
-	int getAPCost() const;
-	int getDamage() const;
-
-	virtual void attack() const = 0;
+	virtual void takeDamage(int);
 
 private:
 
-	AWeapon();
-	AWeapon & operator=( AWeapon const & aWeapon );
+	Enemy();
+	Enemy & operator=( Enemy const & enemy );
 
 protected:
 
-	std::string	_name;
-	int			_damage;
-	int			_apCost;
+	int			_hitPoints;
+	std::string	_type;
 
 };
 

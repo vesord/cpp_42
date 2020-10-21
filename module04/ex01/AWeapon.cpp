@@ -13,7 +13,7 @@
 #include "AWeapon.hpp"
 
 AWeapon::AWeapon(std::string const & name, int apcost, int damage) :
-	_name( name ), _apCost(apcost ), _damage(damage )
+	_name( name ), _damage( damage ), _apCost( apcost )
 {
 	return ;
 }
@@ -22,6 +22,17 @@ AWeapon::AWeapon(const AWeapon &aWeapon)
 {
 	*this = aWeapon;
 	return ;
+}
+
+AWeapon & AWeapon::operator=(const AWeapon &aWeapon)
+{
+	if (this == &aWeapon)
+		return *this;
+
+	this->_damage = aWeapon.getDamage();
+	this->_apCost = aWeapon.getAPCost();
+	this->_name = aWeapon.getName();
+	return *this;
 }
 
 AWeapon::AWeapon()
