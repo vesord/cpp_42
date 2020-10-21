@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   Peon.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matrus <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 09:28:18 by matrus            #+#    #+#             */
-/*   Updated: 2020/10/21 09:28:19 by matrus           ###   ########.fr       */
+/*   Created: 2020/10/21 09:59:05 by matrus            #+#    #+#             */
+/*   Updated: 2020/10/21 09:59:07 by matrus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-#define VICTIM_HPP
+#ifndef PEON_HPP
+#define PEON_HPP
 
+#include "Victim.hpp"
 #include <string>
 
-class Victim {
+class Peon : public Victim {
 
 public:
 
-	Victim( std::string const & name);
-	~Victim();
-	Victim( Victim const & victim );
+	~Peon();
+	Peon( Peon const & peon );
+	Peon( std::string const & name );
 
-	Victim & operator=( Victim const & victim );
-
-	std::string const & getName( void ) const;
+	Peon & operator=( Peon const & peon );
 
 	virtual void getPolymorphed() const;
 
-protected:
+private:
 
-	Victim();
+	Peon();
 
-	std::string _name;
 };
-
-std::ostream & operator<<( std::ostream & o, Victim const & victim );
 
 
 #endif
