@@ -33,6 +33,7 @@ Peon::Peon(const std::string &name) : Victim( name )
 
 Peon & Peon::operator=(const Peon &peon)
 {
+	std::cout << "CLONE OF " << "Zog zog." << std::endl;
 	this->_name = peon.getName();
 	return *this;
 }

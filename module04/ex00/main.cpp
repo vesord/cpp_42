@@ -17,7 +17,7 @@
 
 int main()
 {
-//	Sorcerer default_constructor; // Does not compile
+
 	Sorcerer robert("Robert", "the Magnificent");
 
 	Victim jim("Jimmy");
@@ -27,6 +27,20 @@ int main()
 
 	robert.polymorph(jim);
 	robert.polymorph(joe);
+
+	std::cout << std::endl << "<--- MY TESTS --->" << std::endl;
+
+//	Sorcerer default_sorcerer; // Does not compile
+//	Victim default_victim; // Does not compile
+//	Peon default_peon; // Does not compile
+	Peon joe_twin(joe);
+	Victim jim_twin(jim);
+	robert.polymorph(joe_twin);
+	robert.polymorph(jim_twin);
+	joe_twin.getPolymorphed();
+	jim_twin.getPolymorphed();
+
+	std::cout << std::endl << "<--- DESTRUCTION --->" << std::endl;
 
 	return 0;
 }

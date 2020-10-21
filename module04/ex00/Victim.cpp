@@ -34,6 +34,8 @@ Victim::~Victim()
 
 Victim::Victim(Victim const & victim)
 {
+	std::cout << "CLONE OF " << "Some random victim called " << this->_name
+				<< " just appeared!" << std::endl;
 	*this = victim;
 	return ;
 }

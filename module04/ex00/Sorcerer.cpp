@@ -28,6 +28,8 @@ Sorcerer::~Sorcerer()
 
 Sorcerer::Sorcerer(const Sorcerer &sorcerer)
 {
+	std::cout << "CLONE OF " << this->_name << ", " << this->_title
+				<< ", is born!" << std::endl;
 	*this = sorcerer;
 	return ;
 }
