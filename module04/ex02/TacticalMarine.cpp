@@ -33,6 +33,8 @@ TacticalMarine::TacticalMarine(TacticalMarine const & marine)
 
 TacticalMarine & TacticalMarine::operator=(TacticalMarine const & marine)
 {
+	if (&marine == nullptr)
+		return *this;
 	return *this;
 }
 

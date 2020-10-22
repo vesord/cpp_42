@@ -33,6 +33,8 @@ AssaultTerminator::AssaultTerminator(AssaultTerminator const & marine)
 
 AssaultTerminator & AssaultTerminator::operator=(AssaultTerminator const & marine)
 {
+	if (&marine == nullptr)
+		return *this;
 	return *this;
 }
 
