@@ -76,7 +76,5 @@ int main()
 	std::cout << std::endl << "<--- DELETING ANOTHER SQUAD --->" << std::endl;
 	delete another_squad;
 
-	while (1);
-
 	return 0;
 }
