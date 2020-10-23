@@ -47,6 +47,8 @@ void	Enemy::takeDamage( int dmg )
 {
 	if (dmg >= 0)
 		this->_hitPoints -= dmg;
+	if (this->_hitPoints < 0)
+		this->_hitPoints = 0;
 }
 
 std::string const &	Enemy::getType() const

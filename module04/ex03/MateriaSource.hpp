@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matrus <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 09:59:05 by matrus            #+#    #+#             */
-/*   Updated: 2020/10/21 09:59:07 by matrus           ###   ########.fr       */
+/*   Created: 2020/10/23 13:52:43 by matrus            #+#    #+#             */
+/*   Updated: 2020/10/23 13:52:46 by matrus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
 
-#include "Victim.hpp"
-#include <string>
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
-class Peon : public Victim {
+#include "IMateriaSource.hpp"
+
+class MateriaSource : public IMateriaSource {
 
 public:
 
-	virtual ~Peon();
-	Peon( Peon const & peon );
-	Peon( std::string const & name );
+	MateriaSource();
+	virtual ~MateriaSource();
 
-	Peon & operator=( Peon const & peon );
+	MateriaSource( MateriaSource const & materiaSource );
 
-	virtual void getPolymorphed() const;
+	MateriaSource & operator=( MateriaSource const & materiaSource );
+
+	virtual void learnMateria(AMateria * materia);
+	virtual AMateria * createMateria(std::string const & type);
 
 private:
 
-	Peon();
+	AMateria * _learnedMaterias[4];
 
 };
 

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include <iostream>
 
 Character::Character()
 {
@@ -26,6 +27,8 @@ Character::~Character()
 
 Character::Character(const Character & character)
 {
+	for (int i = 0; i < 4; ++i)
+		this->_inventory[i] = nullptr;
 	*this = character;
 	return ;
 }
@@ -45,9 +48,10 @@ Character & Character::operator=(const Character & character)
 		else
 			this->_inventory[i] = nullptr;
 	}
+	return *this;
 }
 
-Character::Character(std::string & name) : _name( name )
+Character::Character(std::string const & name) : _name( name )
 {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = nullptr;

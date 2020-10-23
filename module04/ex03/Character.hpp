@@ -19,7 +19,7 @@ class Character : public ICharacter {
 
 public:
 
-	Character( std::string & name );
+	Character( std::string const & name );
 
 	virtual ~Character();
 	Character( Character const & character );

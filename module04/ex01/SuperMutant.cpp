@@ -44,4 +44,6 @@ void	SuperMutant::takeDamage( int dmg )
 	dmg -= 3;
 	if (dmg > 0)
 		this->_hitPoints -= dmg;
+	if (this->_hitPoints < 0)
+		this->_hitPoints = 0;
 }

@@ -64,8 +64,12 @@ int main()
 	me->attack(sm);
 	me->attack(sm);
 	me->attack(sm);
-	me->equip( nullptr );
+	me->attack(sm);
 	std::cout << *me << *noob;
+	me->recoverAP();
+	me->attack(sm);
+	me->attack(sm);
+	me->attack(sm);
 	noob->equip(pf);
 	noob->attack(sm);
 //	noob->attack(sm);

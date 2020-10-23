@@ -40,10 +40,3 @@ RadScorpion & RadScorpion::operator=(const RadScorpion &radScorpion)
 	this->_type = radScorpion.getType();
 	return *this;
 }
-
-void	RadScorpion::takeDamage(int dmg )
-{
-	dmg -= 3;
-	if (dmg > 0)
-		this->_hitPoints -= dmg;
-}

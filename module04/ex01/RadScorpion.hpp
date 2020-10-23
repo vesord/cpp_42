@@ -23,8 +23,6 @@ public:
 	RadScorpion();
 	virtual ~RadScorpion();
 
-	virtual void takeDamage( int dmg );
-
 private:
 
 	RadScorpion(RadScorpion const & radScorpion );
