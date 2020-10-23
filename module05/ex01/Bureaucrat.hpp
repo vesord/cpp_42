@@ -37,7 +37,7 @@ public:
 	void	gradeIncrement( void );
 	void	gradeDecrement( void );
 
-	void	signForm( Form const & form );
+	void	signForm( Form & form );
 
 	class GradeTooLowException : public std::exception {
 		const char * what() const throw();

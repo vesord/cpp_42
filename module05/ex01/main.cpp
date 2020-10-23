@@ -11,62 +11,57 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
-	Bureaucrat *b1 = nullptr;
-	Bureaucrat *b150 = nullptr;
-	Bureaucrat *b0 = nullptr;
-	Bureaucrat *b151 = nullptr;
+	Bureaucrat *b75 = nullptr;
+	Form *f74_50 = nullptr;
+	Form *f151_50 = nullptr;
+	Form *f150_151 = nullptr;
+	Form *f0_150 = nullptr;
+	Form *f150_0 = nullptr;
 
-	std::cout << "<--- TRY TO INCREMENT/DECREMENT GRADE --->" << std::endl;
+	std::cout << "<--- TRY TO SIGN FORM --->" << std::endl;
 	try {
-		b1 = new Bureaucrat("b1", 1);
-	}
-	catch (std::exception & e) {
+		b75 = new Bureaucrat("b75", 75);
+	} catch (std::exception & e) {
 		std::cout << e.what();
 	}
 
 	try {
-		b150 = new Bureaucrat("b150", 150);
-	}
-	catch (std::exception & e) {
+		f74_50 = new Form("f_74_50", 74, 50);
+	} catch (std::exception & e) {
 		std::cout << e.what();
 	}
 
-	std::cout << *b1 << *b150 << std::endl;
-	try {
-		b1->gradeIncrement();
-	}
-	catch (std::exception & e) {
-		std::cout << e.what();
-	}
+	std::cout << *b75 << *f74_50 << std::endl;
+	b75->signForm(*f74_50);
 
-	try {
-		b150->gradeDecrement();
-	}
-	catch (std::exception & e) {
-		std::cout << e.what();
-	}
+	std::cout << std::endl << "<--- PROMOTE BUREAUCRAT --->" << std::endl;
+	b75->gradeIncrement();
+	std::cout << *b75 << *f74_50 << std::endl;
 
-	std::cout << std::endl << "<--- TRY CREATE WITH WRONG GRADE --->" << std::endl;
+	std::cout << std::endl << "<--- TRY TO SIGN AGAIN --->" << std::endl;
+	b75->signForm(*f74_50);
+	std::cout << *b75 << *f74_50 << std::endl;
 
-	try {
-		b0 = new Bureaucrat("b0", 0);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what();
-	}
+	std::cout << std::endl << "<--- CREATE WRONG FORMS --->" << std::endl;
 
-	try {
-		b151 = new Bureaucrat("b151", 151);
-	}
-	catch (std::exception & e) {
-		std::cout << e.what();
-	}
+	try { f151_50 = new Form("f_151_50", 151, 50); }
+	catch (std::exception & e) { std::cout << e.what(); }
 
-	std::cout << b0 << b151 << std::endl;
+	try { f150_151 = new Form("f_15_151", 150, 151); }
+	catch (std::exception & e) { std::cout << e.what(); }
 
-	delete b1;
-	delete b150;
+	try { f0_150 = new Form("f_0_150", 0, 150); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
+	try { f150_0 = new Form("f_150_0", 150, 0); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
+	std::cout << f0_150 << f150_0 << f150_151 << f151_50 << std::endl;
+
+	delete f74_50;
+	delete b75;
 }
