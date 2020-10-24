@@ -11,57 +11,74 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	Bureaucrat *b75 = nullptr;
-	Form *f74_50 = nullptr;
-	Form *f151_50 = nullptr;
-	Form *f150_151 = nullptr;
-	Form *f0_150 = nullptr;
-	Form *f150_0 = nullptr;
+	srand(time(nullptr));
+
+	Bureaucrat *b138 = new Bureaucrat("b138", 138);
+	Bureaucrat *b46 = new Bureaucrat("b46", 46);
+	Bureaucrat *b6 = new Bureaucrat("b6", 6);
+	AForm *shrubbery = new ShrubberyCreationForm("home");
+	AForm *robotomy = new RobotomyRequestForm("marvin");
+	AForm *presidential = new PresidentialPardonForm("me");
+
+	std::cout << "<--- TRY TO EXEC FORM --->" << std::endl;
+	try { b138->executeForm(*shrubbery); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
+	try { b46->executeForm(*robotomy); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
+	try { b6->executeForm(*presidential); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
 
 	std::cout << "<--- TRY TO SIGN FORM --->" << std::endl;
-	try {
-		b75 = new Bureaucrat("b75", 75);
-	} catch (std::exception & e) {
-		std::cout << e.what();
-	}
-
-	try {
-		f74_50 = new Form("f_74_50", 74, 50);
-	} catch (std::exception & e) {
-		std::cout << e.what();
-	}
-
-	std::cout << *b75 << *f74_50 << std::endl;
-	b75->signForm(*f74_50);
-
-	std::cout << std::endl << "<--- PROMOTE BUREAUCRAT --->" << std::endl;
-	b75->gradeIncrement();
-	std::cout << *b75 << *f74_50 << std::endl;
-
-	std::cout << std::endl << "<--- TRY TO SIGN AGAIN --->" << std::endl;
-	b75->signForm(*f74_50);
-	std::cout << *b75 << *f74_50 << std::endl;
-
-	std::cout << std::endl << "<--- CREATE WRONG FORMS --->" << std::endl;
-
-	try { f151_50 = new Form("f_151_50", 151, 50); }
+	try { b138->signForm(*shrubbery); }
 	catch (std::exception & e) { std::cout << e.what(); }
 
-	try { f150_151 = new Form("f_15_151", 150, 151); }
+	try { b46->signForm(*robotomy); }
 	catch (std::exception & e) { std::cout << e.what(); }
 
-	try { f0_150 = new Form("f_0_150", 0, 150); }
+	try { b6->signForm(*presidential); }
 	catch (std::exception & e) { std::cout << e.what(); }
 
-	try { f150_0 = new Form("f_150_0", 150, 0); }
+
+	std::cout << "<--- TRY TO EXEC FORM --->" << std::endl;
+	try { b138->executeForm(*shrubbery); }
 	catch (std::exception & e) { std::cout << e.what(); }
 
-	std::cout << f0_150 << f150_0 << f150_151 << f151_50 << std::endl;
+	try { b46->executeForm(*robotomy); }
+	catch (std::exception & e) { std::cout << e.what(); }
 
-	delete f74_50;
-	delete b75;
+	try { b6->executeForm(*presidential); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
+	std::cout << "<--- PROMOTE BUREAUCRATS --->" << std::endl;
+	b138->gradeIncrement();
+	b46->gradeIncrement();
+	b6->gradeIncrement();
+
+
+	std::cout << "<--- TRY TO EXEC FORM --->" << std::endl;
+	try { b138->executeForm(*shrubbery); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
+	try { b46->executeForm(*robotomy); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
+	try { b6->executeForm(*presidential); }
+	catch (std::exception & e) { std::cout << e.what(); }
+
+	delete b138;
+	delete b46;
+	delete b6;
+	delete shrubbery;
+	delete robotomy;
+	delete presidential;
 }

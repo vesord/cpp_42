@@ -28,7 +28,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & fo
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string & target) :
+PresidentialPardonForm::PresidentialPardonForm(std::string const & target) :
 	AForm( "Presidential Pardon Form", 25, 5 ),
 	_target( target )
 {

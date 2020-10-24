@@ -14,7 +14,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-class Form;
+class AForm;
 
 #include <exception>
 #include <iostream>

@@ -12,7 +12,10 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : _gradeToExec( 1 ), _gradeToSign( 1 ), _isSigned( false ), _name( "default" )
+AForm::AForm() : _isSigned( false ),
+				 _name( "default" ),
+				 _gradeToSign( 1 ),
+				 _gradeToExec( 1 )
 {
 	return ;
 }
@@ -23,18 +26,18 @@ AForm::~AForm()
 }
 
 AForm::AForm(const AForm & aForm) : _isSigned( aForm.getIsSigned() ),
-								_gradeToSign( aForm.getGradeToSign() ),
-								_gradeToExec( aForm.getGradeToExec() ),
-								_name( aForm.getName() )
+									_name( aForm.getName() ),
+									_gradeToSign( aForm.getGradeToSign() ),
+									_gradeToExec( aForm.getGradeToExec() )
 {
 	return;
 }
 
 AForm::AForm(const std::string & name, int gradeToSign, int gradeToExec) :
-										_gradeToExec( gradeToExec ),
-										_gradeToSign( gradeToSign ),
+										_isSigned( false ),
 										_name( name ),
-										_isSigned( false )
+										_gradeToSign( gradeToSign ),
+										_gradeToExec( gradeToExec )
 {
 	if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
 		throw AForm::GradeTooHighException();
@@ -76,7 +79,6 @@ void AForm::execute(const Bureaucrat & executor) const
 		throw AForm::FormIsNotSignedException();
 	if (executor.getGrade() > this->_gradeToExec)
 		throw AForm::GradeTooLowException();
-	// Bureaucrat should exec here!
 }
 
 const char * AForm::GradeTooHighException::what() const throw()

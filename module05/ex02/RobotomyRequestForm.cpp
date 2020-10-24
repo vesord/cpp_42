@@ -28,7 +28,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & form) :
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string & target) :
+RobotomyRequestForm::RobotomyRequestForm(std::string const & target) :
 	AForm( "Robotomy Request Form", 72, 45 ),
 	_target( target )
 {

@@ -12,6 +12,7 @@
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+#include <iostream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("default", 1, 1)
 {
@@ -29,7 +30,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & form)
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string & target) :
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target) :
 		AForm( "Shrubbery Creation Form", 145, 137 ),
 		_target( target )
 {
@@ -48,8 +49,8 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(
 void ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 {
 	AForm::execute(executor);
-	std::fstream fs(this->_target + "_shrubbery");
-	fs << "             /\\\n"
+	std::ofstream ofs(this->_target + "_shrubbery");
+	ofs << "             /\\\n"
 		  "            <  >\n"
 		  "             \\/\n"
 		  "             /\\\n"
@@ -73,6 +74,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 		  "/,.,.,.,.,.,.,.,.,.,.,.,.,.\\\n"
 		  "           |   |\n"
 		  "          |`````|\n"
-		  "          \\_____/";
+		  "          \\_____/\n";
 	return ;
 }
