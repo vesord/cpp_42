@@ -10,17 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//
-// Created by Mushroom Atrus on 10/23/20.
-//
-
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
+#include "AForm.hpp"
 
-class ShrubberyCreationForm {
+class ShrubberyCreationForm : public AForm {
+
+public:
+
+	ShrubberyCreationForm( std::string & target );
+	virtual ~ShrubberyCreationForm();
+
+	virtual void execute(const Bureaucrat &executor) const;
+
+private:
+
+	ShrubberyCreationForm & operator=( ShrubberyCreationForm const & form );
+	ShrubberyCreationForm( ShrubberyCreationForm const & form );
+	ShrubberyCreationForm();
+
+	const std::string _target;
 
 };
 
 
-#endif //SHRUBBERYCREATIONFORM_HPP
+#endif

@@ -10,17 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//
-// Created by Mushroom Atrus on 10/23/20.
-//
-
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
+#include "AForm.hpp"
 
-class RobotomyRequestForm {
+class RobotomyRequestForm : public AForm {
+
+public:
+
+	RobotomyRequestForm( std::string & target );
+	virtual ~RobotomyRequestForm();
+
+	virtual void execute(const Bureaucrat &executor) const;
+
+private:
+
+	RobotomyRequestForm & operator=( RobotomyRequestForm const & form );
+	RobotomyRequestForm( RobotomyRequestForm const & form );
+	RobotomyRequestForm();
+
+	const std::string _target;
 
 };
 
 
-#endif //ROBOTOMYREQUESTFORM_HPP
+#endif

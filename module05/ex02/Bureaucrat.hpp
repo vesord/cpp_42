@@ -19,7 +19,7 @@ class Form;
 #include <exception>
 #include <iostream>
 #include <string>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Bureaucrat {
 
@@ -37,7 +37,8 @@ public:
 	void	gradeIncrement( void );
 	void	gradeDecrement( void );
 
-	void	signForm( Form & form );
+	void	signForm( AForm & form );
+	void	executeForm( AForm const & form );
 
 	class GradeTooLowException : public std::exception {
 		const char * what() const throw();

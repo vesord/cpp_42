@@ -10,8 +10,69 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//
-// Created by Mushroom Atrus on 10/23/20.
-//
-
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
+
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("default", 1, 1)
+{
+	return ;
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+	return ;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & form) :
+		AForm( form.getName(), form.getGradeToSign(), form.getGradeToExec())
+{
+	return ;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string & target) :
+		AForm( "Shrubbery Creation Form", 145, 137 ),
+		_target( target )
+{
+	return ;
+}
+
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(
+	const ShrubberyCreationForm & form)
+{
+	if (this == &form)
+		return *this;
+
+	return *this;
+}
+
+void ShrubberyCreationForm::execute(const Bureaucrat & executor) const
+{
+	AForm::execute(executor);
+	std::fstream fs(this->_target + "_shrubbery");
+	fs << "             /\\\n"
+		  "            <  >\n"
+		  "             \\/\n"
+		  "             /\\\n"
+		  "            /  \\\n"
+		  "           /++++\\\n"
+		  "          /  ()  \\\n"
+		  "          /      \\\n"
+		  "         /~`~`~`~`\\\n"
+		  "        /  ()  ()  \\\n"
+		  "        /          \\\n"
+		  "       /*&*&*&*&*&*&\\\n"
+		  "      /  ()  ()  ()  \\\n"
+		  "      /              \\\n"
+		  "     /++++++++++++++++\\\n"
+		  "    /  ()  ()  ()  ()  \\\n"
+		  "    /                  \\\n"
+		  "   /~`~`~`~`~`~`~`~`~`~`\\\n"
+		  "  /  ()  ()  ()  ()  ()  \\\n"
+		  "  /*&*&*&*&*&*&*&*&*&*&*&\\\n"
+		  " /                        \\\n"
+		  "/,.,.,.,.,.,.,.,.,.,.,.,.,.\\\n"
+		  "           |   |\n"
+		  "          |`````|\n"
+		  "          \\_____/";
+	return ;
+}
