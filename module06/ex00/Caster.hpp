@@ -31,10 +31,10 @@ private:
 
 	Caster & operator=( Caster const & caster );
 
-	bool	_castDouble( std::string const & str );
-	bool	_castFloat( std::string const & str );
-	bool	_castInt( std::string const & str );
-	bool	_castChar( std::string const & str );
+	void	_castDouble( std::string const & str );
+	void	_castFloat( std::string const & str );
+	void	_castInt( std::string const & str );
+	void	_castChar(std::string & str );
 
 	char _c;
 	int _i;

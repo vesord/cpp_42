@@ -25,5 +25,6 @@ int main(int argc, char **argv)
 	std::string str(argv[1]);
 	Caster caster(str);
 	caster.printCasts();
+	std::cout << std::endl;
 	return (0);
 }
