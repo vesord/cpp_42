@@ -33,7 +33,7 @@ void nonTemplateFunction( float const & f )
 template < typename T >
 void	iter(T const * begin, size_t const length, void (*function)(T const &))
 {
-	for ( int i = 0; i < length; ++i )
+	for ( size_t i = 0; i < length; ++i )
 		function(begin[i]);
 }
 
