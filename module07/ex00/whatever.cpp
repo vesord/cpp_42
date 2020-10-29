@@ -36,7 +36,6 @@ T & min( T & v1, T & v2 )
 
 int main()
 {
-
 	int a = 2;
 	int b = 3;
 	::swap( a, b );
@@ -84,4 +83,6 @@ int main()
 	std::cout << "maximum of i1 and i2 is " << max(i1, i2) << std::endl;
 	std::cout << "maximum of f1 and f2 is " << max(f1, f2) << std::endl;
 	std::cout << "maximum of b1 and b2 is " << max(b1, b2) << std::endl;
+
+	return 0;
 }
