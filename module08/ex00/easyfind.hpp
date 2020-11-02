@@ -22,7 +22,6 @@ typename T::iterator easyfind( T & container, int i )
 {
 	typename T::iterator p;
 
-
 	p = std::find(container.begin(), container.end(), i);
 	if (p == container.end())
 		throw std::exception();
