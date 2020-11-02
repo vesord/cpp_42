@@ -28,14 +28,6 @@ void Span::addNumber(int n) {
 	++_curSize;
 }
 
-//void Span::addNumber(std::iterator<int, std::list<int> > it,
-//					 std::iterator<int, std::forward_iterator_tag> ite) {
-//	while ( it != ite)
-//	{
-//
-//	}
-//}
-
 unsigned int Span::longestSpan() {
 	if (_curSize < 2)
 		throw SpanNotEnoughNumbersException();
@@ -67,6 +59,12 @@ void Span::_sortSpan() {
 	if (!_isSorted) {
 		_span.sort();
 		_isSorted = !_isSorted;
+	}
+}
+
+void Span::addNumber(std::vector<int>::iterator it, std::vector<int>::iterator ite) {
+	while(it != ite) {
+		addNumber(*it++);
 	}
 }
 

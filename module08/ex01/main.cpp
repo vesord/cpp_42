@@ -13,11 +13,16 @@
 #include "Span.hpp"
 #include <iostream>
 
+int	myRand() {
+	return (-rand() + rand() );
+}
+
 int main()
 {
-	Span sp(42);
+	srand(time(nullptr));
 
-	std::cout << "<--- TESTING LONGEST SPAN --->" << std::endl;
+	std::cout << "<--- TESTING SIMPLE SPAN --->" << std::endl;
+	Span sp(42);
 	sp.addNumber(0);
 	sp.addNumber(10);
 	sp.addNumber(100);
@@ -43,8 +48,22 @@ int main()
 
 	std::cout << std::endl << "<--- TESTING HUGE GENERATION --->" << std::endl;
 
+	std::cout << "10000:" << std::endl;
+	Span bigSpan(10000);
+	std::vector<int> v10k(10000);
+	std::generate(v10k.begin(), v10k.end(), myRand);
+	bigSpan.addNumber(v10k.begin(), v10k.end());
+	std::cout << "LONGEST: " << bigSpan.longestSpan() << std::endl
+			  << "SHORTEST: " << bigSpan.shortestSpan() << std::endl;
 
 
+	std::cout << std::endl << "<--- TESTING HUGE GENERATION 2 --->" << std::endl;
 
-
+	std::cout << "1000000:" << std::endl;
+	Span hugeSpan(1000000);
+	std::vector<int> v1m(1000000);
+	std::generate(v1m.begin(), v1m.end(), myRand);
+	hugeSpan.addNumber(v1m.begin(), v1m.end());
+	std::cout << "LONGEST: " << hugeSpan.longestSpan() << std::endl
+			  << "SHORTEST: " << hugeSpan.shortestSpan() << std::endl;
 }

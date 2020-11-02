@@ -16,6 +16,7 @@
 
 #include <exception>
 #include <list>
+#include <vector>
 #include <iterator>
 
 class Span {
@@ -26,8 +27,9 @@ public:
 	Span( unsigned int n );
 
 	void addNumber( int n );
-//	void addNumber( std::iterator<int,std::forward_iterator_tag>,
-//	    std::iterator<int,std::forward_iterator_tag>);
+	void addNumber( std::vector<int>::iterator,
+					std::vector<int>::iterator);
+
 	unsigned int shortestSpan();
 	unsigned int longestSpan();
 
